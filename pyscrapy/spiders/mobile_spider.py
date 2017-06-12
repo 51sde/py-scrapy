@@ -1,7 +1,9 @@
 #-*-coding:utf-8-*-
 
 import scrapy
+
 from scrapy.http import Request
+from ..config.db import db
 
 class MobileSpider(scrapy.Spider):
     name = "mobile"
@@ -18,6 +20,7 @@ class MobileSpider(scrapy.Spider):
             "1380539",
             "1718538",
         ]
+        print db["mysql"]
 
         for mobile in mobiles:
             url = self.format_url.replace("{mobile}", mobile)
